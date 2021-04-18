@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  hugo-build:
+    image: klakegg/hugo:ext-alpine
+    container_name: pixelvetica_hugo
+    environment:
+      - HUGO_DESTINATION=/usr/share/nginx/html
+    volumes:
+      - static:/usr/share/nginx/html
+      - "./pixelvetica:/src"
+  
+  nginx:
+    image: nginx:latest
+    container_name: pixelvetica_nginx
+    depends_on:
+      - hugo-build
+    restart: always
+    volumes:
+      - static:/usr/share/nginx/html:ro
+    networks:
+      - traefik_wan
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.http-pixelvetica-ch.rule=Host(`pixelvetica.ch`, `www.pixelvetica.ch`)
+      - traefik.http.routers.http-pixelvetica-ch.entryPoints=http
+      - traefik.http.routers.http-pixelvetica-ch.middlewares=https-redirect@file
+      - traefik.http.routers.https-pixelvetica-ch.tls=true
+      - traefik.http.routers.https-pixelvetica-ch.tls.certresolver=letsencrypt
+      - traefik.http.routers.https-pixelvetica-ch.entrypoints=https
+      - traefik.http.routers.https-pixelvetica-ch.rule=Host(`pixelvetica.ch`, `www.pixelvetica.ch`)
+      
+
+volumes:
+    static:
+
+
+networks:
+  traefik_wan:
+    external: true
+
+# vim: ft=yaml tw=80 et ts=2 st=2 sts=2

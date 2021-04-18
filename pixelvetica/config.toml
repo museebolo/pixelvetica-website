@@ -1,0 +1,69 @@
+baseURL = "/"
+languageCode = "fr-CH"
+title = "Pixelvetica"
+themesDir = "themes"
+theme = "hugo-whisper-theme"
+
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsUseClasses = true
+
+# Controls how many words are printed in the content summary on the docs homepage.
+# See https://gohugo.io/content-management/summaries/
+summaryLength = 30
+
+[[menu.main]]
+    name = "Accueil"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+     name = "Aperçu"
+     url = "/details"
+     weight = 2
+
+[[menu.main]]
+    name = "Contexte"
+    url = "/details/contexte"
+    weight = 3
+
+[[menu.main]]
+      name = "Description du projet"
+      url = "/details/description"
+      weight = 4
+
+[[menu.main]]
+      name = "Parties prenantes"
+      url = "/details/parties"
+      weight = 5
+      
+[[menu.main]]
+      name = "Plan de travail"
+      url = "/details/plan"
+      weight = 6
+
+[params]
+  google_analytics_id=""
+  homepage_button_link = '/details'
+  homepage_button_text = 'En savoir plus'
+  homepage_intro = "Pixelvetica est un projet sur l'archivage des jeux vidéo suisses par le Gamelab UNIL-EPFL, le Musée Bolo, l’Atelier 40a avec le soutien de Memoriav, l’association pour la sauvegarde de la mémoire audiovisuelle suisse."
+  homepage_image = '/images/bact_Smaky6.jpg'
+
+  ## You can enable to add anchor links to header elements
+  # enable_anchor_link = true
+
+  [params.homepage_meta_tags]
+    meta_description = "Pixelvetica est un projet sur l'archivage des jeux vidéo suisses"
+    meta_og_title = "Pixelvetica"
+    meta_og_type = "website"
+    meta_og_url = "https://www.pixelvetica.ch"
+    meta_og_image = "/images/Pixelvetica_Logo_RVB_800.png"
+    meta_og_description = "Pixelvetica est un projet sur l'archivage des jeux vidéo suisses"
+    meta_twitter_card = "summary"
+    meta_twitter_site = "Pixelvetica"
+    meta_twitter_creator = "Pixelvetica"
+	meta_twitter_image = "https://www.pixelvetica.ch/images/Pixelvetica_Logo_RVB_800.png"
+
+  [params.logo]
+      mobile = "/images/Pixelvetica_Logo_RVB.svg"
+      standard  = "/images/Pixelvetica_Logo_RVB.svg"
